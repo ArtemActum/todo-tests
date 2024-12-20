@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.todo.get.GetTodosTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-12-18T15:40:37" hostname="WMCL651" time="3.721">
+  <properties/>
+  <testcase name="testGetTodosWithExistingEntries()" classname="com.todo.get.GetTodosTests" time="3.721"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

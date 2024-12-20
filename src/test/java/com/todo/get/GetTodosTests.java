@@ -2,6 +2,8 @@ package com.todo.get;
 
 
 import com.todo.BaseTest;
+import com.todo.annotations.DataPreparationExtension;
+import com.todo.annotations.PrepareTodo;
 import io.qameta.allure.*;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.http.ContentType;
@@ -14,9 +16,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasSize;
 import com.todo.models.Todo;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 @Epic("TODO Management")
 @Feature("Get Todos API")
+@ExtendWith(DataPreparationExtension.class)
 public class GetTodosTests extends BaseTest {
 
     @BeforeEach
@@ -71,12 +75,9 @@ public class GetTodosTests extends BaseTest {
     }
 
     @Test
+    @PrepareTodo(5)
     @Description("Использование параметров offset и limit для пагинации")
     public void testGetTodosWithOffsetAndLimit() {
-        // Создаем 5 TODO
-        for (int i = 1; i <= 5; i++) {
-            createTodo(new Todo(i, "Task " + i, i % 2 == 0));
-        }
 
         Response response =
                 given()
